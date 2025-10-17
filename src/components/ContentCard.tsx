@@ -15,8 +15,8 @@ const ContentCard = ({ title, description, image, tags, date, link }: ContentCar
   const CardWrapper = link ? Link : "div";
 
   return (
-    <CardWrapper to={link || "#"} className="block group">
-      <Card className="h-full overflow-hidden border border-border hover:shadow-lg transition-all duration-300">
+    <CardWrapper to={link || "#"} className="block group h-full">
+      <Card className="h-full flex flex-col overflow-hidden border border-border hover:shadow-lg transition-all duration-300">
         <div className="aspect-video overflow-hidden">
           <img
             src={image}
@@ -24,11 +24,11 @@ const ContentCard = ({ title, description, image, tags, date, link }: ContentCar
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           />
         </div>
-        <CardContent className="p-6">
+        <CardContent className="p-6 flex-1 flex flex-col">
           <h3 className="text-xl font-heading font-semibold mb-2 group-hover:text-primary transition-colors">
             {title}
           </h3>
-          <p className="text-muted-foreground text-sm leading-relaxed">{description}</p>
+          <p className="text-muted-foreground text-sm leading-relaxed flex-1">{description}</p>
         </CardContent>
         {(tags || date) && (
           <CardFooter className="px-6 pb-6 pt-0 flex flex-wrap gap-2 items-center">

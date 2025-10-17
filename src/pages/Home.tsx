@@ -4,36 +4,13 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
 const Home = () => {
-  const recentPosts = [
-    {
-      title: "Understanding Machine Learning in Healthcare",
-      description: "Exploring how ML algorithms are transforming medical diagnostics and patient care.",
-      image: "/placeholder.svg",
-      tags: ["Machine Learning", "Healthcare"],
-      date: "March 2024",
-    },
-    {
-      title: "Data Science at Swissmedic",
-      description: "A look into regulatory data analysis and pharmaceutical safety assessment.",
-      image: "/placeholder.svg",
-      tags: ["Data Science", "Regulation"],
-      date: "February 2024",
-    },
-    {
-      title: "Python for Statistical Analysis",
-      description: "Best practices and tools for statistical computing in Python.",
-      image: "/placeholder.svg",
-      tags: ["Python", "Statistics"],
-      date: "January 2024",
-    },
-  ];
 
   return (
     <>
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center px-6 lg:px-12">
         <div className="max-w-4xl mx-auto text-center space-y-8 fade-in">
-          <h1 className="text-5xl md:text-7xl font-heading font-bold leading-tight">
+          <h1 className="text-4xl md:text-6xl font-heading font-bold leading-tight">
             Hi, I'm Nicolas Löffler-Perez
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground">
@@ -53,25 +30,126 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Recent Posts Section */}
+      {/* About Section */}
+      <section id="about" className="py-24 px-6 lg:px-12">
+        <div className="container mx-auto max-w-4xl">
+          <div className="space-y-12 fade-in">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">About Me</h2>
+              <p className="text-xl text-muted-foreground">
+                Data Scientist, Founder, Researcher, and Problem Solver
+              </p>
+            </div>
+
+            <div className="aspect-video w-full rounded-lg overflow-hidden bg-muted">
+              <img
+                src="/nico_landscape.jpg"
+                alt="Nicolas Löffler-Perez"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            <div className="prose prose-lg max-w-none space-y-6 text-muted-foreground">
+              <p className="text-lg leading-relaxed">
+                I'm Nicolas Löffler-Perez, a Data Scientist at Swissmedic where I work at the 
+                intersection of data science, machine learning, and pharmaceutical regulation. 
+                My role involves analyzing complex datasets to ensure drug safety and support 
+                regulatory decision-making.
+              </p>
+
+              <p className="text-lg leading-relaxed">
+                With a background in engineering and machine learning, I specialize in developing 
+                data-driven solutions that transform raw information into actionable insights.
+              </p>
+
+              <div className="pt-8">
+                <h3 className="text-2xl font-heading font-semibold mb-4 text-foreground">Expertise</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {[
+                    "Statistical Analysis",
+                    "Machine Learning",
+                    "Python & R",
+                    "Data Visualization",
+                    "Regulatory Data Science",
+                    "Healthcare Analytics",
+                  ].map((skill) => (
+                    <div
+                      key={skill}
+                      className="p-4 border border-border rounded-lg bg-card hover:shadow-md transition-shadow"
+                    >
+                      <span className="font-medium text-foreground">{skill}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="pt-8">
+                <h3 className="text-2xl font-heading font-semibold mb-4 text-foreground">Education</h3>
+                <div className="space-y-4">
+                  <div className="p-6 border border-border rounded-lg bg-card">
+                    <h4 className="font-semibold text-lg text-foreground">PhD in Chemical and Biomolecular Engineering</h4>
+                    <p className="text-muted-foreground">Johns Hopkins University</p>
+                    <p className="text-sm text-muted-foreground mt-2">2014 - 2019</p>
+                  </div>
+                  <div className="p-6 border border-border rounded-lg bg-card">
+                    <h4 className="font-semibold text-lg text-foreground">Master's in Engineering Science - Biomedical Engineering</h4>
+                    <p className="text-muted-foreground">Pontifical Catholic University of Chile</p>
+                    <p className="text-sm text-muted-foreground mt-2">2013 - 2014</p>
+                  </div>
+                  <div className="p-6 border border-border rounded-lg bg-card">
+                    <h4 className="font-semibold text-lg text-foreground">Bachelor's in Physics</h4>
+                    <p className="text-muted-foreground">Pontifical Catholic University of Chile</p>
+                    <p className="text-sm text-muted-foreground mt-2">2008 - 2012</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Portfolio Section */}
       <section className="py-24 px-6 lg:px-12 bg-card">
         <div className="container mx-auto max-w-6xl">
           <div className="mb-12 fade-in">
-            <h2 className="text-4xl font-heading font-bold mb-4">Recent Posts & Videos</h2>
+            <h2 className="text-4xl font-heading font-bold mb-4">Portfolio</h2>
             <p className="text-muted-foreground text-lg">
-              Thoughts and insights on data science, machine learning, and technology.
+              A selection of projects showcasing my work in data science, machine learning, 
+              and regulatory analytics.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {recentPosts.map((post, index) => (
-              <div key={index} className="fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                <ContentCard {...post} />
+            {[
+              {
+                title: "Pharmaceutical Safety Analysis",
+                description: "Developed ML models to predict adverse drug reactions using historical data from clinical trials.",
+                image: "/placeholder.svg",
+                tags: ["Machine Learning", "Healthcare", "Python"],
+                date: "2024",
+              },
+              {
+                title: "Regulatory Data Dashboard",
+                description: "Built an interactive dashboard for monitoring drug approval processes and compliance metrics.",
+                image: "/placeholder.svg",
+                tags: ["Data Viz", "React", "D3.js"],
+                date: "2023",
+              },
+              {
+                title: "Statistical Modeling Framework",
+                description: "Created a reusable framework for statistical analysis in pharmaceutical research.",
+                image: "/placeholder.svg",
+                tags: ["R", "Statistics", "Package Dev"],
+                date: "2023",
+              },
+            ].map((project, index) => (
+              <div key={index} className="fade-in h-full" style={{ animationDelay: `${index * 0.1}s` }}>
+                <ContentCard {...project} />
               </div>
             ))}
           </div>
           <div className="mt-12 text-center">
             <Button asChild variant="outline">
-              <Link to="/portfolio">View All Work</Link>
+              <Link to="/portfolio">View All Projects</Link>
             </Button>
           </div>
         </div>

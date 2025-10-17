@@ -14,9 +14,6 @@ const Footer = () => {
             <span>Built with care for the environment</span>
             <Heart className="h-4 w-4 text-primary" />
           </div>
-          <p className="text-xs text-muted-foreground max-w-md">
-            This website is designed with sustainability in mind, optimized for performance and minimal carbon footprint.
-          </p>
         </div>
       </div>
     </footer>
