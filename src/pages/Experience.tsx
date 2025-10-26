@@ -11,24 +11,10 @@ const Experience = () => {
     },
     {
       year: "2019 - 2021",
-      title: "Junior Data Analyst",
-      company: "Healthcare Analytics Institute",
+      title: "Machine Learning Researcher - Multimodal learning in the Hospital",
+      company: "UniversitätsSpital Zürich & University of Zürich",
       description:
-        "Conducted statistical analyses on clinical trial data and healthcare outcomes. Collaborated with medical researchers to design and implement data collection strategies.",
-    },
-    {
-      year: "2018 - 2019",
-      title: "Research Assistant",
-      company: "University Research Lab",
-      description:
-        "Assisted in research projects focused on statistical methods for biomedical data. Developed R packages for data analysis and visualization.",
-    },
-    {
-      year: "2017 - 2018",
-      title: "Data Science Intern",
-      company: "Tech Startup",
-      description:
-        "Built predictive models for customer behavior analysis. Created data pipelines and automated reporting systems using Python and SQL.",
+        "Worked on machine learning optimization at the Radiology Department. Specifically, on the prediction of no-show patients for MRI Scheduling optimization. Developed multimodal model for radiological images. Worked on multimodal learning for capilaroscopy images in the Rheumatology Department at UniversitätsSpital Zürich.",
     },
   ];
 
