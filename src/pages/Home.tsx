@@ -2,8 +2,47 @@ import ContentCard from "@/components/ContentCard";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const Home = () => {
+  const titles = [
+    "I'm a Data Scientist at Swissmedic",
+    "I'm a Founder and Data Scientist at veanu GmbH",
+    "I'm a Scientist in the life sciences"
+  ];
+
+  const [currentTitleIndex, setCurrentTitleIndex] = useState(Math.floor(Math.random() * titles.length));
+  const [displayedText, setDisplayedText] = useState(titles[Math.floor(Math.random() * titles.length)]);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const typeWriter = () => {
+      const currentTitle = titles[currentTitleIndex];
+      const baseText = "I'm a";
+      
+      if (isDeleting) {
+        // Delete characters until we reach "I'm a"
+        if (displayedText.length > baseText.length) {
+          setDisplayedText(prev => prev.slice(0, -1));
+        } else {
+          // Finished deleting, move to next title
+          setIsDeleting(false);
+          setCurrentTitleIndex(prev => (prev + 1) % titles.length);
+        }
+      } else {
+        // Type out the new title
+        if (displayedText.length < currentTitle.length) {
+          setDisplayedText(currentTitle.slice(0, displayedText.length + 1));
+        } else {
+          // Finished typing, wait then start deleting
+          setTimeout(() => setIsDeleting(true), 3000);
+        }
+      }
+    };
+
+    const interval = setInterval(typeWriter, 70); // Adjust speed here
+    return () => clearInterval(interval);
+  }, [currentTitleIndex, displayedText, isDeleting, titles]);
 
   return (
     <>
@@ -13,8 +52,11 @@ const Home = () => {
           <h1 className="text-4xl md:text-6xl font-heading font-bold leading-tight">
             Hi, I'm Nicolas Löffler-Perez
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground">
-            I'm a Data Scientist at Swissmedic
+          <p className="text-xl md:text-2xl text-muted-foreground min-h-[3rem] flex items-center justify-center">
+            <span>
+              {displayedText}
+              <span className="animate-pulse">|</span>
+            </span>
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
             <Button asChild size="lg" className="group">
@@ -121,11 +163,11 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                title: "Pharmaceutical Safety Analysis",
-                description: "Developed ML models to predict adverse drug reactions using historical data from clinical trials.",
-                image: "/placeholder.svg",
-                tags: ["Machine Learning", "Healthcare", "Python"],
-                date: "2024",
+                title: "Pharmaceutical Market Oversight",
+                description: "Developed MediCrawl and NightCrawler at Swissmedic to identify non-compliant and illegal medicaments sold in ecommerce",
+                image: "/image_nico_amld.png",
+                tags: ["Machine Learning", "Healthcare", "Python", "Microservices", "Azure", "Crawling"],
+                date: "2021-2025",
               },
               {
                 title: "Regulatory Data Dashboard",
