@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Linkedin, Github, Twitter } from "lucide-react";
+import { Mail, Linkedin, Github, Bird } from "lucide-react";
 
 const Contact = () => {
   return (
@@ -26,12 +26,9 @@ const Contact = () => {
                   <p className="text-muted-foreground text-sm mb-3">
                     Reach out directly via email
                   </p>
-                  <a
-                    href="mailto:nicolas@example.com"
-                    className="text-primary hover:underline font-medium"
-                  >
-                    nicolas@example.com
-                  </a>
+                  <p className="text-primary font-medium">
+                    nicoapg - at the google service
+                  </p>
                 </div>
               </div>
             </CardContent>
@@ -49,12 +46,12 @@ const Contact = () => {
                     Connect professionally
                   </p>
                   <a
-                    href="https://linkedin.com/in/nicolaslp"
+                    href="https://www.linkedin.com/in/nicolas-löffler-perez-phd-46245775/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary hover:underline font-medium"
                   >
-                    linkedin.com/in/nicolaslp
+                    Here to jump to L-I-N-K-E-D-I-N
                   </a>
                 </div>
               </div>
@@ -73,12 +70,12 @@ const Contact = () => {
                     Check out my code
                   </p>
                   <a
-                    href="https://github.com/nicolaslp"
+                    href="https://github.com/nicoapg"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary hover:underline font-medium"
                   >
-                    github.com/nicolaslp
+                    github.com/nicoapg
                   </a>
                 </div>
               </div>
@@ -89,20 +86,20 @@ const Contact = () => {
             <CardContent className="p-6">
               <div className="flex items-start gap-4">
                 <div className="p-3 bg-primary/10 rounded-lg">
-                  <Twitter className="h-6 w-6 text-primary" />
+                  <Bird className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-2">Twitter</h3>
+                  <h3 className="font-semibold mb-2">veanu GmbH</h3>
                   <p className="text-muted-foreground text-sm mb-3">
-                    Follow for updates
+                    Check out my startup: veanu.ch
                   </p>
                   <a
-                    href="https://twitter.com/nicolaslp"
+                    href="https://veanu.ch"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary hover:underline font-medium"
                   >
-                    @nicolaslp
+                    veanu.ch
                   </a>
                 </div>
               </div>
@@ -117,8 +114,8 @@ const Contact = () => {
               Whether you have a project in mind, need consulting services, or just want to 
               discuss data science trends, I'd love to hear from you.
             </p>
-            <Button size="lg" asChild>
-              <a href="mailto:nicolas@example.com">Send Me a Message</a>
+            <Button size="lg">
+              Send Me a Message
             </Button>
           </CardContent>
         </Card>

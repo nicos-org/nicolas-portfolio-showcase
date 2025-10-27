@@ -1,7 +1,7 @@
 import ContentCard from "@/components/ContentCard";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const Home = () => {
@@ -107,41 +107,128 @@ const Home = () => {
               <div className="pt-8">
                 <h3 className="text-2xl font-heading font-semibold mb-4 text-foreground">Expertise</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {[
-                    "Statistical Analysis",
-                    "Machine Learning",
-                    "Python & R",
-                    "Data Visualization",
-                    "Regulatory Data Science",
-                    "Healthcare Analytics",
-                  ].map((skill) => (
-                    <div
-                      key={skill}
-                      className="p-4 border border-border rounded-lg bg-card hover:shadow-md transition-shadow"
-                    >
-                      <span className="font-medium text-foreground">{skill}</span>
-                    </div>
-                  ))}
+                  {/* Python & R card with list - First */}
+                  <div className="p-4 border border-border rounded-lg bg-card hover:shadow-md transition-shadow">
+                    <div className="font-medium text-foreground mb-3">Python & R:</div>
+                    <ul className="space-y-2">
+                      <li className="flex items-start gap-2">
+                        <Check className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-foreground">Data Science and Software Engineering.</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <Check className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-foreground">Machine Learning and Analytics Pipelines.</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <Check className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-foreground">Dashboards & Visualizations.</span>
+                      </li>
+                    </ul>
+                  </div>
+                  
+                  {/* Machine Learning & AI card with list - Second */}
+                  <div className="p-4 border border-border rounded-lg bg-card hover:shadow-md transition-shadow">
+                    <div className="font-medium text-foreground mb-3">Machine Learning & AI</div>
+                    <ul className="space-y-2">
+                      <li className="flex items-start gap-2">
+                        <Check className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-foreground">Development of models from scratch</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <Check className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-foreground">GenAI implementations of LLMs</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <Check className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-foreground">RAG Pipelines development</span>
+                      </li>
+                    </ul>
+                  </div>
+                  
+                  {/* Regulatory Data Science - Third */}
+                  <div className="p-4 border border-border rounded-lg bg-card hover:shadow-md transition-shadow">
+                    <div className="font-medium text-foreground mb-3">Regulatory Data Science</div>
+                    <ul className="space-y-2">
+                      <li className="flex items-start gap-2">
+                        <Check className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-foreground">Founder of veanu GmbH (GovTech)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <Check className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-foreground">Developer of open source GovTech</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <Check className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-foreground">Representative in International Venues</span>
+                      </li>
+                    </ul>
+                  </div>
+                  
+                  {/* Making Prototypes in the Cloud - Fourth */}
+                  <div className="p-4 border border-border rounded-lg bg-card hover:shadow-md transition-shadow">
+                    <div className="font-medium text-foreground mb-3">Making Prototypes in the Cloud</div>
+                    <ul className="space-y-2">
+                      <li className="flex items-start gap-2">
+                        <Check className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-foreground">Fast Development of Applications</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <Check className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-foreground">Cloud Native in AWS & Azure</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <Check className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-foreground">DevOps, CI/CD, Agile Development</span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
 
               <div className="pt-8">
                 <h3 className="text-2xl font-heading font-semibold mb-4 text-foreground">Education</h3>
                 <div className="space-y-4">
-                  <div className="p-6 border border-border rounded-lg bg-card">
-                    <h4 className="font-semibold text-lg text-foreground">PhD in Chemical and Biomolecular Engineering</h4>
-                    <p className="text-muted-foreground">Johns Hopkins University</p>
-                    <p className="text-sm text-muted-foreground mt-2">2014 - 2019</p>
+                  <div className="p-6 border border-border rounded-lg bg-card relative">
+                    <div className="pr-40">
+                      <h4 className="font-semibold text-lg text-foreground">PhD in Chemical and Biomolecular Engineering</h4>
+                      <p className="text-muted-foreground">Johns Hopkins University</p>
+                      <p className="text-sm text-muted-foreground mt-2">2014 - 2019</p>
+                    </div>
+                    <div className="absolute top-1/2 right-4 transform -translate-y-1/2">
+                      <img 
+                        src="/hopkins.jpg" 
+                        alt="Johns Hopkins University" 
+                        className="w-40 h-40 object-contain"
+                      />
+                    </div>
                   </div>
-                  <div className="p-6 border border-border rounded-lg bg-card">
-                    <h4 className="font-semibold text-lg text-foreground">Master's in Engineering Science - Biomedical Engineering</h4>
-                    <p className="text-muted-foreground">Pontifical Catholic University of Chile</p>
-                    <p className="text-sm text-muted-foreground mt-2">2013 - 2014</p>
+                  <div className="p-6 border border-border rounded-lg bg-card relative">
+                    <div className="pr-20">
+                      <h4 className="font-semibold text-lg text-foreground">Master's in Engineering Science - Biomedical Engineering</h4>
+                      <p className="text-muted-foreground">Pontifical Catholic University of Chile</p>
+                      <p className="text-sm text-muted-foreground mt-2">2013 - 2014</p>
+                    </div>
+                    <div className="absolute top-1/2 right-14 transform -translate-y-1/2">
+                      <img 
+                        src="/puc.png" 
+                        alt="Pontifical Catholic University of Chile" 
+                        className="w-20 h-20 object-contain"
+                      />
+                    </div>
                   </div>
-                  <div className="p-6 border border-border rounded-lg bg-card">
-                    <h4 className="font-semibold text-lg text-foreground">Bachelor's in Physics</h4>
-                    <p className="text-muted-foreground">Pontifical Catholic University of Chile</p>
-                    <p className="text-sm text-muted-foreground mt-2">2008 - 2012</p>
+                  <div className="p-6 border border-border rounded-lg bg-card relative">
+                    <div className="pr-20">
+                      <h4 className="font-semibold text-lg text-foreground">Bachelor's in Physics</h4>
+                      <p className="text-muted-foreground">Pontifical Catholic University of Chile</p>
+                      <p className="text-sm text-muted-foreground mt-2">2008 - 2012</p>
+                    </div>
+                    <div className="absolute top-1/2 right-14 transform -translate-y-1/2">
+                      <img 
+                        src="/puc.png" 
+                        alt="Pontifical Catholic University of Chile" 
+                        className="w-20 h-20 object-contain"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>

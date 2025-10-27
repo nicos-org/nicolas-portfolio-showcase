@@ -10,23 +10,217 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isConsoleMode, setIsConsoleMode] = useState(false);
+  const [is90sMode, setIs90sMode] = useState(false);
 
   const menuOptions = isConsoleMode 
-    ? ["Exit Console Mode", "Show me the source code", "Make it more interactive"]
-    : ["I am actually a software engineer - make the website for a technical public", "Show me the source code", "Make it more interactive"];
+    ? ["Exit Console Mode", "Show me the source code", "I loved the 90's, take me there please"]
+    : is90sMode
+    ? ["Exit 90's Mode", "Show me the source code", "I am actually a software engineer - make the website for a technical public"]
+    : ["I am actually a software engineer - make the website for a technical public", "Show me the source code", "I loved the 90's, take me there please"];
 
   const handleMenuOption = (option: string) => {
     if (option === "I am actually a software engineer - make the website for a technical public") {
       setIsConsoleMode(true);
     } else if (option === "Exit Console Mode") {
       setIsConsoleMode(false);
+    } else if (option === "I loved the 90's, take me there please") {
+      setIs90sMode(true);
+    } else if (option === "Exit 90's Mode") {
+      setIs90sMode(false);
     }
     setIsMenuOpen(false);
   };
 
   return (
     <div className="min-h-screen flex flex-col">
-      {isConsoleMode ? (
+      {is90sMode ? (
+        <div className="min-h-screen" style={{
+          backgroundImage: 'url("/wallpaper_clouds.webp")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          fontFamily: 'MS Sans Serif, Arial, sans-serif'
+        }}>
+          <div className="container mx-auto px-4 py-8 max-w-4xl">
+            {/* Header */}
+            <div className="text-center mb-8">
+              <h1 className="text-3xl md:text-4xl font-bold mb-4" style={{ 
+                color: '#000080', 
+                textShadow: '2px 2px 0px #ffffff',
+                fontFamily: 'MS Sans Serif, Arial, sans-serif'
+              }}>
+                nicolasloefflerperez.com Needs Your Help! Enter the{' '}
+                <a 
+                  href="https://nicolasloefflerperez.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline"
+                  style={{ color: '#0000FF' }}
+                >
+                  website-link and contact me!
+                </a>
+              </h1>
+            </div>
+
+            {/* Windows 95 Style Window */}
+            <div className="bg-gray-300 border-2 border-gray-400 shadow-lg mb-8" style={{ 
+              borderTopColor: '#ffffff', 
+              borderLeftColor: '#ffffff',
+              borderRightColor: '#808080',
+              borderBottomColor: '#808080'
+            }}>
+              {/* Title Bar */}
+              <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-2 py-1 flex justify-between items-center" style={{
+                background: 'linear-gradient(to right, #000080, #0000FF)'
+              }}>
+                <span className="font-bold text-sm">Welcome to nicolasloefflerperez.com</span>
+                <div className="flex space-x-1">
+                  <div className="w-4 h-4 bg-gray-400 border border-gray-600 flex items-center justify-center text-xs">_</div>
+                  <div className="w-4 h-4 bg-gray-400 border border-gray-600 flex items-center justify-center text-xs">□</div>
+                  <div className="w-4 h-4 bg-gray-400 border border-gray-600 flex items-center justify-center text-xs">×</div>
+                </div>
+              </div>
+
+              {/* Window Content */}
+              <div className="p-4 bg-white">
+                {/* 4x3 Icon Grid */}
+                <div className="grid grid-cols-4 gap-4 mb-4">
+                  {/* Row 1 */}
+                  <div className="flex flex-col items-center text-center">
+                    <img src="/icon_01_windows.png" alt="Windows" className="w-20 h-20 mb-2 object-contain" />
+                    <span className="text-xs font-bold text-black">For New Users Only</span>
+                  </div>
+                  
+                  <div className="flex flex-col items-center text-center">
+                    <div className="w-16 h-16 mb-2 bg-green-600"></div>
+                    <span className="text-xs font-bold text-black">Internet TCP/IP Connectivity</span>
+                  </div>
+                  
+                  <div className="flex flex-col items-center text-center">
+                    <div className="w-16 h-16 mb-2 bg-yellow-500"></div>
+                    <span className="text-xs font-bold text-black">32-bit Hardware Drivers</span>
+                  </div>
+
+                  <div className="flex flex-col items-center text-center">
+                    <div className="w-16 h-16 mb-2 bg-blue-500"></div>
+                    <span className="text-xs font-bold text-black">32-bit Shareware</span>
+                  </div>
+
+                  {/* Row 2 */}
+                  <div className="flex flex-col items-center text-center">
+                    <div className="w-16 h-16 mb-2 bg-purple-600"></div>
+                    <span className="text-xs font-bold text-black">Virtual Servers Incorporated</span>
+                  </div>
+                  
+                  <div className="flex flex-col items-center text-center">
+                    <div className="w-16 h-16 mb-2 bg-red-600"></div>
+                    <span className="text-xs font-bold text-black">Internet Hyper-Glossary</span>
+                  </div>
+                  
+                  <div className="flex flex-col items-center text-center">
+                    <div className="w-16 h-16 mb-2 bg-orange-500"></div>
+                    <span className="text-xs font-bold text-black">Shareware CD-ROM</span>
+                  </div>
+
+                  <div className="flex flex-col items-center text-center">
+                    <div className="w-16 h-16 mb-2 bg-indigo-500"></div>
+                    <span className="text-xs font-bold text-black">Search the Site</span>
+                  </div>
+
+                  {/* Row 3 */}
+                  <div className="flex flex-col items-center text-center">
+                    <div className="w-16 h-16 mb-2 bg-blue-600"></div>
+                    <span className="text-xs font-bold text-black">QuickTutors 95</span>
+                  </div>
+                  
+                  <div className="flex flex-col items-center text-center">
+                    <div className="w-16 h-16 mb-2 bg-green-500"></div>
+                    <span className="text-xs font-bold text-black">Advertise at Windows95.com</span>
+                  </div>
+                  
+                  <div className="flex flex-col items-center text-center">
+                    <div className="w-16 h-16 mb-2 bg-teal-600"></div>
+                    <span className="text-xs font-bold text-black">About Windows95.com</span>
+                  </div>
+
+                  <div className="flex flex-col items-center text-center">
+                    <div className="w-16 h-16 mb-2 bg-pink-500"></div>
+                    <span className="text-xs font-bold text-black">About the Author</span>
+                  </div>
+                </div>
+
+                {/* Footer within window */}
+                <div className="flex justify-between text-xs text-gray-600">
+                  <span>©1996 Windows95.com</span>
+                  <span>Webmaster Services by Nicolas Löffler Perez aka Nicolas Perez Gonzalez</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Under Construction Text */}
+            <div className="text-center mb-4">
+              <p className="text-lg font-bold text-black mb-2" style={{ 
+                fontFamily: 'MS Sans Serif, Arial, sans-serif',
+                textShadow: '1px 1px 0px #ffffff'
+              }}>
+                This part of Nico's website is under construction
+              </p>
+              <img src="/under_construction.png" alt="Under Construction" className="mx-auto" />
+            </div>
+
+            {/* Purple-Green Banner */}
+            <div className="bg-gradient-to-r from-purple-600 to-green-600 text-white p-4 mb-6 text-center">
+              <div className="flex items-center justify-center space-x-4">
+                <img src="/image_nico_amld.png" alt="Visual InterDev" className="h-12 w-auto" />
+                <div>
+                  <h2 className="text-xl font-bold mb-2">Develop dynamic websites</h2>
+                  <p className="text-lg mb-1">CLICK HERE FOR A FREE DOWNLOAD</p>
+                  <p className="text-sm">Microsoft® Visual InterDev</p>
+                </div>
+                <div className="bg-gray-600 px-3 py-1 text-xs">
+                  Site Builder Network
+                </div>
+              </div>
+            </div>
+
+            {/* Advertising Text */}
+            <div className="text-center mb-6">
+              <p className="text-lg font-bold text-black">
+                Find out how to get{' '}
+                <a href="#" className="text-blue-600 hover:underline" style={{ color: '#0000FF' }}>
+                  Free Advertising
+                </a>{' '}
+                on Windows95.com!
+              </p>
+            </div>
+
+            {/* Navigation Buttons */}
+            <div className="flex justify-center space-x-2 mb-8">
+              {['Home', 'Advertise', 'Shareware', 'Search', 'E-mail'].map((button) => (
+                <button
+                  key={button}
+                  className="px-4 py-2 bg-gray-300 border-2 border-gray-400 text-black font-bold text-sm hover:bg-gray-400"
+                  style={{
+                    borderTopColor: '#ffffff',
+                    borderLeftColor: '#ffffff',
+                    borderRightColor: '#808080',
+                    borderBottomColor: '#808080'
+                  }}
+                >
+                  {button}
+                </button>
+              ))}
+            </div>
+
+            {/* Footer */}
+            <div className="text-center">
+              <h1 className="text-2xl font-bold text-black mb-4">Welcome to Windows95.com™</h1>
+              <h1 className="text-2xl font-bold text-black mb-4">Welcome to Windows95.com™</h1>
+              <h1 className="text-2xl font-bold text-black">Welcome to Windows95.com™</h1>
+            </div>
+          </div>
+        </div>
+      ) : isConsoleMode ? (
         <div className="min-h-screen bg-gray-900 flex items-center justify-center p-4">
           <div className="w-full max-w-6xl h-[90vh] bg-black border border-gray-600 rounded-lg overflow-hidden shadow-2xl">
             {/* Terminal Header */}
