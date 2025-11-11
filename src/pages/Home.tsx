@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, Check } from "lucide-react";
 import { useState, useEffect } from "react";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel";
 
 const Home = () => {
   const titles = [
@@ -14,6 +15,14 @@ const Home = () => {
   const [currentTitleIndex, setCurrentTitleIndex] = useState(Math.floor(Math.random() * titles.length));
   const [displayedText, setDisplayedText] = useState(titles[Math.floor(Math.random() * titles.length)]);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [talks, setTalks] = useState<Array<{
+    image: string;
+    title: string;
+    titleColor: string;
+    description: string;
+    location: string;
+  }>>([]);
+  const [api, setApi] = useState<CarouselApi>();
 
   useEffect(() => {
     const typeWriter = () => {
@@ -43,6 +52,27 @@ const Home = () => {
     const interval = setInterval(typeWriter, 70); // Adjust speed here
     return () => clearInterval(interval);
   }, [currentTitleIndex, displayedText, isDeleting, titles]);
+
+  useEffect(() => {
+    // Load talks data
+    fetch('/talks/talks.json')
+      .then(res => res.json())
+      .then(data => setTalks(data))
+      .catch(err => console.error('Failed to load talks:', err));
+  }, []);
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    // Auto-advance carousel every 5 seconds
+    const interval = setInterval(() => {
+      api.scrollNext();
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [api]);
 
   return (
     <>
@@ -257,10 +287,10 @@ const Home = () => {
                 date: "2021-2025",
               },
               {
-                title: "Regulatory Data Dashboard",
-                description: "Built an interactive dashboard for monitoring drug approval processes and compliance metrics.",
-                image: "/placeholder.svg",
-                tags: ["Data Viz", "React", "D3.js"],
+                title: "Internal Search Engine",
+                description: "Built Machine Learning based search engine, combining state of the art reranking methods with existing tech.",
+                image: "/internal_search_engine.png",
+                tags: ["ML", "Elastic", "Semantic Search", "LLMs"],
                 date: "2023",
               },
               {
@@ -284,6 +314,59 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Speaker Section */}
+      <section className="py-24 px-6 lg:px-12">
+        <div className="container mx-auto max-w-6xl">
+          <div className="mb-12 fade-in">
+            <h2 className="text-4xl font-heading font-bold mb-4">Speaker</h2>
+          </div>
+          
+          {talks.length > 0 && (
+            <div className="relative">
+              <Carousel
+                opts={{
+                  align: "start",
+                  loop: true,
+                }}
+                setApi={setApi}
+                className="w-full"
+              >
+                <CarouselContent>
+                  {talks.map((talk, index) => (
+                    <CarouselItem key={index} className="basis-full">
+                      <div className="relative aspect-video rounded-lg overflow-hidden group">
+                        <img
+                          src={`/talks/${talk.image}`}
+                          alt={talk.title}
+                          className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/40" />
+                        <div className="absolute top-0 left-0 right-0 p-4">
+                          <h3 
+                            className="text-4xl md:text-5xl font-heading font-bold drop-shadow-lg"
+                            style={{ color: talk.titleColor }}
+                          >
+                            {talk.title}
+                          </h3>
+                        </div>
+                        <div className="absolute bottom-0 left-0 right-0 p-4">
+                          <div className="bg-gray-800/70 backdrop-blur-sm rounded-lg p-4 mb-2">
+                            <p className="text-base md:text-lg text-white/90">{talk.description}</p>
+                          </div>
+                          <p className="text-sm md:text-base text-white/70">📍 {talk.location}</p>
+                        </div>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="h-24 w-24 -left-28" iconClassName="!h-10 !w-10" />
+                <CarouselNext className="h-24 w-24 -right-28" iconClassName="!h-10 !w-10" />
+              </Carousel>
+            </div>
+          )}
+        </div>
+      </section>
+
       {/* Quick Intro Section */}
       <section className="py-24 px-6 lg:px-12">
         <div className="container mx-auto max-w-4xl text-center space-y-6 fade-in">
@@ -295,9 +378,6 @@ const Home = () => {
             I help organizations make informed decisions through data-driven approaches. 
             Currently working at Swissmedic, I focus on pharmaceutical safety and regulatory excellence.
           </p>
-          <Button asChild variant="outline" size="lg" className="mt-4">
-            <Link to="/about">Learn More About Me</Link>
-          </Button>
         </div>
       </section>
     </>

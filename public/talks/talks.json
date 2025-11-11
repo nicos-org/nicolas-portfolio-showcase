@@ -1,0 +1,31 @@
+[
+  {
+    "image": "talk_01_DIA_BASEL.jpeg",
+    "title": "DIA Basel",
+    "titleColor": "#FFFFFF",
+    "description": "Presentation on regulatory data science and pharmaceutical market oversight",
+    "location": "Basel, Switzerland"
+  },
+  {
+    "image": "talk_02_AMLD_LAUSANNE.jpeg",
+    "title": "AMLD - Applied Machine Learning Days",
+    "titleColor": "#FFFFFF", 
+    "description": "Machine learning applications in all areas - I introduced how it is being done at the Government level",
+    "location": "Lausanne, Switzerland"
+  },
+  {
+    "image": "talk_03_INTELLIGENT_HEALTH_BASEL.gif",
+    "title": "Intelligent Health Basel",
+    "titleColor": "#FFFFFF",
+    "description": "AI and machine learning in healthcare innovation",
+    "location": "Basel, Switzerland"
+  },
+  {
+    "image": "talk_04_RISK_ANTWERP.jpeg",
+    "title": "RISK Antwerp",
+    "titleColor": "#000000",
+    "description": "Risk assessment and regulatory data analysis",
+    "location": "Antwerp, Belgium"
+  }
+]
+
